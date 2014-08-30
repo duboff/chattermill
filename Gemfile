@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
+
 ruby '2.1.2'
 gem 'rails', '4.1.5'
 gem 'sass-rails', '~> 4.0.3'
@@ -20,6 +22,10 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'rails_12factor'
 gem 'coveralls', require: false
+gem 'autoprefixer-rails'
+
+# Assets
+gem 'rails-assets-angular'
 
 group :development do
   gem 'better_errors'
