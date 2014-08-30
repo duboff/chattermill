@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'rails_12factor'
+gem 'coveralls', require: false
 
 group :development do
   gem 'better_errors'
