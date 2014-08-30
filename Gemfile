@@ -23,6 +23,7 @@ gem 'unicorn-rails'
 gem 'rails_12factor'
 gem 'coveralls', require: false
 gem 'autoprefixer-rails'
+gem "activeadmin", github: "gregbell/active_admin"
 
 # Assets
 gem 'rails-assets-angular'
@@ -39,17 +40,28 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem "rubocop"
+  gem 'meta_request'
 end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-rails'
   gem 'pry-rescue'
+  gem "pry-stack_explorer"
+  gem "pry-nav"
+  gem "pry-theme"
   gem 'rspec-rails'
 end
+
 group :test do
   gem 'capybara'
+  gem "capybara-screenshot"
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem "poltergeist"
+  gem "shoulda-matchers"
+  gem "spring-commands-rspec"
 end
