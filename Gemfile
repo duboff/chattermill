@@ -18,6 +18,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
+gem 'rails_12factor'
 
 group :development do
   gem 'better_errors'
