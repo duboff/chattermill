@@ -8,7 +8,6 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
@@ -25,9 +24,12 @@ gem 'rails_12factor'
 gem 'coveralls', require: false
 gem 'autoprefixer-rails'
 gem "activeadmin", github: "gregbell/active_admin"
+gem 'ember-rails'
+gem 'ember-source'
+gem 'emblem-rails'
 
 # Assets
-gem 'rails-assets-angular'
+
 
 group :development do
   gem 'better_errors'
@@ -36,7 +38,6 @@ group :development do
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'html2haml'
-  gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
@@ -47,6 +48,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
+  gem 'quiet_assets'
   gem 'faker'
   gem 'pry-rails'
   gem 'pry-rescue'
