@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # root to: 'visitors#index'
   root to: 'home#index'
-  
+
   devise_for :users
   resources :users
+
+  get '*path', to: 'home#index'
 end
