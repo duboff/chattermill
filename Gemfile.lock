@@ -128,6 +128,8 @@ GEM
       railties (>= 3.1)
     ember-source (1.7.0)
       handlebars-source (~> 1.0)
+    ember_devise_simple_auth (0.4.4)
+      devise (>= 3.0.0)
     emblem-rails (0.2.1)
       barber-emblem (~> 0.1.1)
       ember-rails (>= 0.14.0)
@@ -269,6 +271,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.5)
       sprockets-rails (~> 2.0)
+    rails-assets-ember-devise-simple-auth (0.5.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -414,6 +417,7 @@ DEPENDENCIES
   devise
   ember-rails
   ember-source
+  ember_devise_simple_auth
   emblem-rails
   factory_girl_rails
   faker
@@ -437,6 +441,7 @@ DEPENDENCIES
   pry-theme
   quiet_assets
   rails (= 4.1.5)
+  rails-assets-ember-devise-simple-auth
   rails_12factor
   rails_layout
   rb-fchange
