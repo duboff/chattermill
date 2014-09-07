@@ -8,8 +8,8 @@ feature 'Home page' do
   #   Given I am a visitor
   #   When I visit the home page
   #   Then I see "Welcome"
-  scenario 'visit the home page' do
-    visit root_path
+  scenario 'visit the home page', js: true do
+    visit "/"
     expect(page).to have_content 'Welcome'
   end
 

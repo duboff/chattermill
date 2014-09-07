@@ -6,6 +6,9 @@ App.Router.reopen
 App.Router.map ()->
   # @resource('posts')
 
-  # @resource 'posts', path: '/posts', ->
-  #   @route 'new', path: '/new'
+  @route 'welcome', path: '/'
+  @route 'about', path: '/about'
+  @resource 'user', path: '/users/:id'
+  
+  
 

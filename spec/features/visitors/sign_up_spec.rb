@@ -17,9 +17,9 @@ feature 'Sign Up', :devise do
   #   Given I am not signed in
   #   When I sign up with an invalid email address
   #   Then I see an invalid email message
-  scenario 'visitor cannot sign up with invalid email address' do
+  scenario 'visitor cannot sign up with without an email address' do
     sign_up_with('bogus', 'please123', 'please123')
-    expect(page).to have_content 'Email is invalid'
+    expect(page).to have_xpath("//input[@required='required']")
   end
 
   # Scenario: Visitor cannot sign up without password
@@ -28,7 +28,7 @@ feature 'Sign Up', :devise do
   #   Then I see a missing password message
   scenario 'visitor cannot sign up without password' do
     sign_up_with('test@example.com', '', '')
-    expect(page).to have_content "Password can't be blank"
+    expect(page).to have_xpath("//input[@required='required']")
   end
 
   # Scenario: Visitor cannot sign up with a short password

@@ -10,7 +10,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro', '>= 1.0.0.rc1'
@@ -19,7 +18,7 @@ gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
 gem 'puma'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'coveralls', require: false
 gem 'autoprefixer-rails'
 gem "activeadmin", github: "gregbell/active_admin"
@@ -54,6 +53,8 @@ group :development, :test do
   gem "pry-nav"
   gem "pry-theme"
   gem 'rspec-rails'
+  gem 'spring'
+  gem 'mailcatcher'
 end
 
 group :test do
@@ -65,4 +66,6 @@ group :test do
   gem "poltergeist"
   gem "shoulda-matchers"
   gem "spring-commands-rspec"
+  gem 'capybara-email'
+  gem 'fuubar'
 end

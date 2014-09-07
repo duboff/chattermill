@@ -1,9 +1,0 @@
-.authform
-  form submit=signIn
-    h3 Sign in
-    .form-group
-      input type='text' value=email class="form-control" id=email placeholder="Email"
-    .form-group
-      input type='password' value=password class="form-control" id=password placeholder="Password"
-    .form-group
-      input type="submit" class='button right' value='Sign in'
