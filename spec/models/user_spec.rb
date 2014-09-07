@@ -9,6 +9,9 @@ describe User do
   it { should respond_to(:last_name) }
   it { should respond_to(:full_name) }
 
+  it { should validate_presence_of :first_name}
+  it { should validate_presence_of :last_name}
+
   it "#email returns a string" do
     expect(@user.email).to match 'user@example.com'
   end  
@@ -16,5 +19,4 @@ describe User do
   it "#full_name returns the right string" do
     expect(@user.full_name).to match 'John Watson'
   end
-
 end
