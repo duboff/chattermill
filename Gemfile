@@ -9,8 +9,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'spring', group: :development
+gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro', '>= 1.0.0.rc1'
@@ -26,7 +26,6 @@ gem "activeadmin", github: "gregbell/active_admin"
 gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
-gem "ember_devise_simple_auth"
 
 # Assets
 
