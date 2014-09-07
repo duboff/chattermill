@@ -29,7 +29,6 @@ gem 'emblem-rails'
 gem "ember_devise_simple_auth"
 
 # Assets
-gem 'rails-assets-ember-devise-simple-auth'
 
 group :development do
   gem 'better_errors'
