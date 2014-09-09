@@ -9,6 +9,10 @@ App.Router.map ()->
   @route 'welcome', path: '/'
   @route 'about', path: '/about'
   @resource 'user', path: '/users/:id'
+  @resource 'companies', path: '/companies', ->
+    @route 'new'
+    @resource 'company', path: '/:id', ->
+      @route 'edit'
   
   
 

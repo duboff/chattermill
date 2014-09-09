@@ -1,0 +1,9 @@
+section
+  h1= model.name
+  p
+    ' Name:
+    model.name
+
+  p
+    ' Website:
+    model.website

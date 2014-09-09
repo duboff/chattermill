@@ -6,3 +6,6 @@ section
   p
     ' Email:
     model.email
+section
+  h1 Company
+  link-to 'companies.new' | Create company
