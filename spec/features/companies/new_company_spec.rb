@@ -1,9 +1,11 @@
 feature 'Company' do
-  
-  scenario 'user sees a link to create a new company in profile if one does not exist', js: true do 
+
+  background do
     user = FactoryGirl.create(:user)
     signin(user.email, user.password)
-
+  end
+  
+  scenario 'user sees a link to create a new company in profile if one does not exist', js: true do 
     click_link 'Create company'
 
     expect(page).to have_content 'New Company'

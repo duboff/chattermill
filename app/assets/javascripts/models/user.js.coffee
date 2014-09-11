@@ -6,4 +6,5 @@ App.User = DS.Model.extend
   fullName: ( ->
     @get('firstName') + ' ' + @get('lastName')
   ).property('firstName', 'lastName')
+  company: DS.belongsTo('company')
   

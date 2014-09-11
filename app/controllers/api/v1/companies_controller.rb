@@ -10,7 +10,10 @@ class Api::V1::CompaniesController < ApplicationController
   end
 
   def create
-    respond_with :api, :v1, Company.create(company_params)
+    company = Company.create(company_params)
+    current_user.tap { |user| user.company = company }.save
+
+    respond_with :api, :v1, company
   end
 
   def update
@@ -19,10 +22,6 @@ class Api::V1::CompaniesController < ApplicationController
 
   def destroy
     respond_with company.destroy
-  end
-
-  def before_validate
-    self.users << current_user unless self.user.include?(current_user)
   end
 
   private
