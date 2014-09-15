@@ -9,7 +9,7 @@ describe Plan do
   it { should respond_to(:description) }
   it { should respond_to(:price) }
 
-  it { should belong_to(:company) }
+  it { should have_many(:companies) }
 
   it { should validate_presence_of :name}
   it { should validate_presence_of :description}

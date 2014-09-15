@@ -3,5 +3,5 @@ class UserSerializer < ActiveModel::Serializer
 
   belongs_to :company
 
-  # embed :ids
+  
 end

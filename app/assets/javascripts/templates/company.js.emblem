@@ -7,3 +7,8 @@ section
   p
     ' Website:
     model.website
+  p
+    = link-to "subscription"
+      ' Subscription Plan
+.col-md-9
+  = outlet

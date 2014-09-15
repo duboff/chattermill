@@ -25,6 +25,9 @@ gem "activeadmin", github: "gregbell/active_admin"
 gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
+gem 'money'
+gem 'active_model_serializers'
+gem 'stripe-rails'
 
 # Assets
 
@@ -68,4 +71,5 @@ group :test do
   gem "spring-commands-rspec"
   gem 'capybara-email'
   gem 'fuubar'
+  gem 'stripe-ruby-mock'
 end

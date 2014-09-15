@@ -1,0 +1,9 @@
+if plan
+  =link-to 'subscription.edit'
+    ' Modify Subscription
+else
+  =link-to 'subscription.new'
+    %span.glyphicon.glyphicon-plus
+    | New Subscription
+section
+  = outlet

@@ -8,11 +8,18 @@ App.Router.map ()->
 
   @route 'welcome', path: '/'
   @route 'about', path: '/about'
+
   @resource 'user', path: '/users/:id'
-  @resource 'companies', path: '/companies', ->
+
+  @resource 'companies', ->
     @route 'new'
     @resource 'company', path: '/:id', ->
       @route 'edit'
+      # @resource 'users', ->
+      #   @route 'invite'
+      # @route 'plans'
   
-  
+      @resource 'subscription', ->
+        @route 'new'
+        @route 'edit'
 

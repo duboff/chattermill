@@ -1,0 +1,7 @@
+=link-to 'subscription.edit'
+/     ' Modify Subscription
+/ else
+/   =link-to 'subscription.new'
+/     ' New Subscription
+section
+  ' Bla

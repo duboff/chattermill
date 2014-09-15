@@ -1,6 +1,8 @@
 class Api::V1::CompaniesController < ApplicationController
   respond_to :json
 
+  before_filter :authenticate_user!
+
   # def index
   #   respond_with Company.all
   # end

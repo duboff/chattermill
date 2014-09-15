@@ -1,6 +1,4 @@
 App.CompaniesNewController = Ember.Controller.extend
-
-  # needs: 'user'
   actions:
     createCompany: ->
       fields = @get('fields')
