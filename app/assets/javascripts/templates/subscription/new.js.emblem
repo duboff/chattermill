@@ -1,1 +1,35 @@
-' Bla
+unless isUpdating
+  .row
+    each itemController='plan'
+      .col-xs-12.col-md-5 
+        .panel class=id
+          .panel-heading
+            h3.panel-title = name
+          .panel-body
+            .the-price
+              h1 
+                = formattedAmount
+                span.subscript /mo
+              small 1 month FREE trial
+            table.table
+              tr
+                td 
+                  = limit
+                  |  use per month
+              tr.active
+                td
+                  | 1 Project
+              tr
+                td
+                  | 100K API Access
+              tr.active
+                td
+                  | 100MB Storage
+              tr
+                td
+                  | Custom Cloud Services
+              tr.active
+                td
+                  | Weekly Reports
+          .panel-footer
+            a.btn.btn-success href="#" role="button" action="subscribe" Subscribe Now
