@@ -19,8 +19,8 @@ module Chattermill
         request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
-
-    config.stripe.publishable_key = ENV["STRIPE_PUBLISHABLE_KEY"]
+    config.stripe.publishable_key = ENV["STRIPE_API_KEY"]
+    config.stripe.secret_key = ENV["STRIPE_SECRET_KEY"]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

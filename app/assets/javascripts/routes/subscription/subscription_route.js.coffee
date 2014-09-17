@@ -5,7 +5,7 @@ App.SubscriptionRoute = Ember.Route.extend
       https://checkout.stripe.com/v3/checkout.js
     "
 
-  model: -> @modelFor 'organization'
+  model: -> @modelFor 'company'
 
 
   stripeCheckout: (options) ->
@@ -21,7 +21,7 @@ App.SubscriptionRoute = Ember.Route.extend
         description:      options.description
         panelLabel:       options.panelLabel
         allowRememberMe:  false
-        email:            @controllerFor('session').get('user.email')
+        # email:            @controllerFor('session').get('user.email')
 
         token: (response) ->
           resolve response.id
@@ -31,26 +31,26 @@ App.SubscriptionRoute = Ember.Route.extend
   updateSubscription: (opts) ->
     @controller.set 'isUpdating', true
 
-    organization = @modelFor 'organization'
+    company = @modelFor 'company'
 
-    organization.setProperties opts
+    company.setProperties opts
 
-    organization.save().then =>
+    company.save().then =>
       @transitionTo "subscription"
     .then null, (xhr) =>
       # Updating the subscription failed
       message = xhr.responseJSON?.error || "Modifying subscription
         failed, please try again"
       @notifier.error message
-      organization.rollback()
+      company.rollback()
     .then =>
       @controller.set 'isUpdating', false
-      organization.set 'cardToken', null
+      company.set 'cardToken', null
 
 
   actions:
     # Subscribe to a plan given that no plan is currently active for
-    # this organization
+    # this company
     subscribe: (plan) ->
       @stripeCheckout
         amount:      plan.get 'amount'

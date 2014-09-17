@@ -5,7 +5,7 @@ class Api::V1::PlansController < ApplicationController
   
   def index
     plans = Stripe::Plans.all.map { |plan|
-      PlanSerializer.new(plan)
+      PlanSerializer.new(plan, root: false)
     }
     respond_with plans
   end

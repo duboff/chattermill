@@ -13,7 +13,8 @@ class Api::V1::CompaniesController < ApplicationController
 
   def create
     company = Company.create(company_params)
-    current_user.tap { |user| user.company = company }.save
+    # binding.pry
+    current_user.tap { |user| user.company_id = company.id }.save
 
     respond_with :api, :v1, company
   end

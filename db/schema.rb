@@ -54,11 +54,8 @@ ActiveRecord::Schema.define(version: 20140914145328) do
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.integer  "plan_id"
   end
-
-  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
