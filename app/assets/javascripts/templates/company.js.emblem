@@ -10,5 +10,8 @@ section
   p
     = link-to "subscription"
       ' Subscription Plan
+  p
+    = link-to "company.dashboard"
+      ' Dashboard
 section.center-block
   = outlet

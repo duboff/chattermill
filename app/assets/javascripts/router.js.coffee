@@ -22,4 +22,5 @@ App.Router.map ()->
       @resource 'subscription', ->
         @route 'new'
         @route 'edit'
+      @route 'dashboard'
 
