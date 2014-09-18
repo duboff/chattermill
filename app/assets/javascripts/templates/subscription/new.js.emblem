@@ -32,4 +32,4 @@ unless isUpdating
                 td
                   | Weekly Reports
           .panel-footer
-            a.btn.btn-success href="#" role="button" action="subscribe" Subscribe Now
+            a.btn.btn-success href="#" role="button" click="subscribe this" Subscribe Now

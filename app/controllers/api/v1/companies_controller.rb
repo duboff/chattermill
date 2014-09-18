@@ -14,14 +14,24 @@ class Api::V1::CompaniesController < ApplicationController
   def create
     company = Company.create(company_params)
     # binding.pry
-    current_user.tap { |user| user.company_id = company.id }.save
+    current_user.tap { |user| user.company = company }.save
 
     respond_with :api, :v1, company
   end
 
   def update
-    respond_with company.update(company_params)
+    respond_with company.update company_params
+    
+    rescue StripeCustomer::SubscriptionError => e
+      render json: {error: e.message}, status: 400
   end
+
+  # def update
+  #   @organization.update_attributes organization_params
+  #   respond_with :api, @organization
+  # rescue StripeCustomer::SubscriptionError => e
+  #   render json: {error: e.message}, status: 400
+  # end
 
   def destroy
     respond_with company.destroy
@@ -34,7 +44,7 @@ class Api::V1::CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:name, :website)
+    params.require(:company).permit(:name, :website, :plan_id)
   end
 
 end

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name
 
-  has_one :company
+  belongs_to :company
     
   def full_name
     first_name + " " + last_name

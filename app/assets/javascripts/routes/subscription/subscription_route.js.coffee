@@ -11,6 +11,7 @@ App.SubscriptionRoute = Ember.Route.extend
   stripeCheckout: (options) ->
     # Open the checkout popup and wrap it in a promise that resolves
     # with the card token once the user has filled it in successfully
+    console.log(App.config.stripeKey)
     new Em.RSVP.Promise (resolve) =>
       StripeCheckout.open
         name:             App.config.applicationName
