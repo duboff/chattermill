@@ -1,7 +1,7 @@
 unless isUpdating
-  .row
+  .col-md-offset-1
     each itemController='plan'
-      .col-xs-12.col-md-5 
+      .col-md-5.col-xs-12
         .panel class=id
           .panel-heading
             h3.panel-title = name

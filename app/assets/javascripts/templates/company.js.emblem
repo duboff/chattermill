@@ -10,5 +10,5 @@ section
   p
     = link-to "subscription"
       ' Subscription Plan
-.col-md-9
+section.center-block
   = outlet
