@@ -1,0 +1,1 @@
+App.ProjectController = Em.ObjectController.extend()

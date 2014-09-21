@@ -1,7 +1,7 @@
 feature 'Company' do
 
   background do
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     signin(user.email, user.password)
   end
   

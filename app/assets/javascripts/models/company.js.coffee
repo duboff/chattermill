@@ -3,3 +3,4 @@ App.Company = DS.Model.extend
   website: DS.attr 'string'
   users: DS.hasMany('user')
   plan: DS.belongsTo 'plan'
+  projects: DS.hasMany('project')

@@ -9,7 +9,7 @@ describe User do
   it { should respond_to(:last_name) }
   it { should respond_to(:full_name) }
 
-  it { should have_one(:company) }
+  it { should belong_to(:company) }
 
 
 

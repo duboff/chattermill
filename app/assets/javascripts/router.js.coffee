@@ -23,4 +23,6 @@ App.Router.map ()->
         @route 'new'
         @route 'edit'
       @route 'dashboard'
+      @resource 'projects', ->
+        @route 'new'
 

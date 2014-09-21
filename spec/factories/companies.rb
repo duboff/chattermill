@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :company do
-    name "MyString"
-    website "MyString"
+    name "McDonalds"
+    website "http://www.mcdonalds.com"
   end
 end

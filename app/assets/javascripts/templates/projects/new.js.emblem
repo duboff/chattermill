@@ -1,0 +1,9 @@
+section
+  h1 New Project
+  form
+    .form-group
+      view Ember.TextField value=fields.name placeholder='Project Name' class="form-control"
+    .form-group 
+      view Ember.TextArea value=fields.body placeholder='Please paste your text data separating new separate blocks (such as tweets, with a new line.' class="form-control" min-height='200px'
+    .form-group
+      input click="createProject" type='submit' value='Start the project' class="btn btn-primary btn-lg btn-block"

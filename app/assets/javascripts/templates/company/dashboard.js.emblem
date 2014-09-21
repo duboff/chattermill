@@ -1,2 +1,5 @@
 h1 
-  ' Bla
+  ' Dashboard
+p
+  = link-to "projects.new"
+    ' Create a new project

@@ -13,12 +13,22 @@ feature 'User profile page', :devise do
   #   When I visit the user profile page
   #   Then I see my own email address
   scenario 'user sees own profile', js: true do
-    user = FactoryGirl.create(:user)
-    login_as(user, :scope => :user)
+    user = create(:user)
+    login_as(user, scope: :user)
     visit "/users/#{user.id}"
     expect(page).to have_content user.first_name
     expect(page).to have_content user.last_name
     expect(page).to have_content user.email
+  end
+
+  scenario 'user sees his own company in profile', js: true do
+    company = create(:company) 
+    user = create(:user, company: company)
+   
+    login_as(user, scope: :user)
+    visit "/users/#{user.id}"
+
+    expect(page).to have_content company.name
   end
 
   # Scenario: User cannot see another user's profile
