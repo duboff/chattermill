@@ -15,7 +15,7 @@ feature 'Creating projects' do
     visit "/companies/#{@company.id}/projects/new"
     fill_in "Project Name", with: 'My awesome project'
     fill_in 'project_body', with: fake_text
-    click_button 'Start your poejct'
+    click_button 'Start the project'
 
     expect(page).to have_content 'My awesome project'
   end
