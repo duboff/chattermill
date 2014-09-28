@@ -1,3 +1,3 @@
-App.SubscriptionRoute = Ember.Route.extend
+App.DashboardRoute = Ember.Route.extend
   model: -> @modelFor 'company'
   

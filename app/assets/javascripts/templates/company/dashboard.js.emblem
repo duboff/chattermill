@@ -1,5 +1,5 @@
-h1 
-  ' Dashboard
+h1 Dashboard
 p
-  = link-to "projects.new"
-    ' Create a new project
+  link-to "projects.new" | Create a new project
+p
+  link-to "projects.index" model | List of projects

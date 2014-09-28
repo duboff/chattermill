@@ -7,6 +7,7 @@ section
     ' Email:
     model.email
 section
-  h1 = model.company.name
-
-  link-to 'companies.new' | Create company
+  if model.company
+    h1 = model.company.name
+  else
+    link-to 'companies.new' | Create company

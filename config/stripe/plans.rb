@@ -31,6 +31,7 @@
 # This will export any new plans to stripe.com so that you can
 # begin using them in your API calls.
 class Stripe::Plans::Configuration
+  include ActiveModel::Serialization
   include ActiveModel::SerializerSupport
 
   attr_accessor :limit

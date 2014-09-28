@@ -9,11 +9,11 @@ App.Router.map ()->
   @route 'welcome', path: '/'
   @route 'about', path: '/about'
 
-  @resource 'user', path: '/users/:id'
+  @resource 'user', path: '/users/:user_id'
 
   @resource 'companies', ->
     @route 'new'
-    @resource 'company', path: '/:id', ->
+    @resource 'company', path: '/:company_id', ->
       @route 'edit'
       # @resource 'users', ->
       #   @route 'invite'
@@ -25,4 +25,6 @@ App.Router.map ()->
       @route 'dashboard'
       @resource 'projects', ->
         @route 'new'
+        @resource 'project', path: '/:project_id', ->
+          @route 'edit'
 

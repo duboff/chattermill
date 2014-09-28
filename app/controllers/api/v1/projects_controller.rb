@@ -8,6 +8,7 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def create
+    # binding.pry
     project = Project.create(project_params)  
     respond_with :api, :v1, project
   end
@@ -30,6 +31,6 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :body)
+    params.require(:project).permit(:name, :body, :company_id)
   end
 end
