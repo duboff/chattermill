@@ -18,6 +18,11 @@ describe Project do
   end
 
   context "Creating texts" do
+    it 'text creation is triggered on project creation' do
+      expect(Text).to receive(:create)
+
+      Project.create(name: "A cool project", body: 'Bla Baa')
+    end
     it 'breaks body down and creates texts on project creation' do
       new_project = Project.create(name: "Another cool project", body: fake_text)
      

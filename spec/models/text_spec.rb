@@ -10,5 +10,13 @@ describe Text do
   
   it "#body returns a string" do
     expect(@text.body).to match "Some body"
-  end  
+  end
+
+  context 'Analysis' do
+    it 'sends a text to analysis on creation' do
+      expect(Semantria::Client).to receive(:queue_document)
+
+      Text.create(body: "Some text to analyse")
+    end
+  end
 end

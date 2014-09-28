@@ -28,6 +28,9 @@ gem 'emblem-rails'
 gem 'money'
 gem 'active_model_serializers'
 gem 'stripe-rails'
+gem 'httparty'
+gem 'semantria'
+
 
 # Assets
 
