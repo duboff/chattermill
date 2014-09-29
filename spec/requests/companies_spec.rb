@@ -26,6 +26,7 @@ describe "Companies API" do
       json = JSON.parse(response.body).with_indifferent_access[:company]
 
       expect(json[:name]).to eq @user.company.name
+      expect(json[:website]).to eq @user.company.website
     end
   end
 end
