@@ -4,7 +4,7 @@
 #   So I can see my personal account data
 feature 'User profile page' do
   background do
-    @user = create(:user, company: create(:company))
+    @user = create(:user)
     signin(@user.email, @user.password)
     visit "/users/#{@user.id}"
   end
@@ -17,10 +17,6 @@ feature 'User profile page' do
     expect(page).to have_content @user.last_name
     expect(page).to have_content @user.email
   end
-
-  # scenario 'user sees his own company in profile', js: true do
-  #   expect(page).to have_content @user.company.name
-  # end
 
   # Scenario: User cannot see another user's profile
   #   Given I am signed in
