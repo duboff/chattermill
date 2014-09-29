@@ -14,9 +14,9 @@ describe Text do
 
   context 'Analysis' do
     it 'sends a text to analysis on creation' do
-      expect(Semantria::Client).to receive(:queue_document)
+      expect(ProcessText).to receive(:call)
 
-      Text.create(body: "Some text to analyse")
+      Text.create(body: "Some text to analyse", uuid: SecureRandom.uuid)
     end
   end
 end

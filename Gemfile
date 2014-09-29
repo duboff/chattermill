@@ -30,7 +30,7 @@ gem 'active_model_serializers'
 gem 'stripe-rails'
 gem 'httparty'
 gem 'semantria'
-
+gem 'sidekiq'
 
 # Assets
 
