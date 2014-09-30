@@ -34,5 +34,4 @@ class Api::V1::CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:name, :website, :plan_id)
   end
-
 end
