@@ -33,7 +33,7 @@ describe "Project API" do
   end
   describe "POST /projects" do
 
-    it 'creates a company from correct params' do
+    it 'creates a project from correct params' do
   
       @user = create(:user, company: create(:company))
       sign_in_as_a_valid_user

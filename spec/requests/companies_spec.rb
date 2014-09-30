@@ -45,4 +45,32 @@ describe "Companies API" do
       end
     end
   end
+  describe "POST /projects" do
+
+    it 'creates a company from correct params' do
+  
+      @user = create(:user)
+      sign_in_as_a_valid_user
+    
+
+       company_params = {
+        "company" => {
+          "name" => "Bla",
+          "website" => "blabla.com",
+        }
+      }.to_json
+
+      request_headers = {
+        "Accept" => "application/json",
+        "Content-Type" => "application/json"
+      }
+
+      post "/api/v1/companies", company_params, request_headers
+
+      expect(response.status).to eq 201
+      expect(Company.count).to eq 1
+      expect(Company.last.name).to eq 'Bla'
+      expect(Company.last.website).to eq 'blabla.com'
+    end
+  end
 end
