@@ -21,9 +21,9 @@ class Api::V1::CompaniesController < ApplicationController
       render json: {error: e.message}, status: 400
   end
 
-  def destroy
-    respond_with company.destroy
-  end
+  # def destroy
+  #   respond_with company.destroy
+  # end
 
   private
 
