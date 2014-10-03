@@ -9,13 +9,12 @@ class Api::V1::ProjectsController < ApplicationController
 
   def create
     # binding.pry
-    project = Project.create(project_params)  
+    project = Project.create(project_params)
     respond_with :api, :v1, project
   end
 
   # def update
   #   respond_with company.update company_params
-    
   #   rescue StripeCustomer::SubscriptionError => e
   #     render json: {error: e.message}, status: 400
   # end
