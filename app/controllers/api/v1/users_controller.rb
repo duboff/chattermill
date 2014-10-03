@@ -1,9 +1,9 @@
 class Api::V1::UsersController < ApplicationController
   respond_to :json
-  
+
   before_filter :authenticate_user!
 
-  def show  
+  def show
     respond_with user
   end
 

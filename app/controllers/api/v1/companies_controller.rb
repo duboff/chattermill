@@ -16,9 +16,9 @@ class Api::V1::CompaniesController < ApplicationController
 
   def update
     respond_with company.update company_params
-    
+
     rescue StripeCustomer::SubscriptionError => e
-      render json: {error: e.message}, status: 400
+      render json: { error: e.message }, status: 400
   end
 
   # def destroy
