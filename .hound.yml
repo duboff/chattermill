@@ -1,5 +1,5 @@
 ruby:
   enabled: true
-  config_file: config/.rubocop.yml
+  config_file: .rubocop.yml
 coffee_script:
   enabled: true
