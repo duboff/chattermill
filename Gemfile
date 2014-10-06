@@ -70,7 +70,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem "poltergeist"
-  gem "shoulda-matchers"
+  gem 'shoulda-matchers', require: false
   gem "spring-commands-rspec"
   gem 'capybara-email'
   gem 'fuubar'

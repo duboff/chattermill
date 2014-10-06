@@ -7,5 +7,9 @@ class Text < ActiveRecord::Base
 
   def process_text
     ProcessText.call(body, uuid)
+
+    sleep(10)
+    
+    GetProcessedText.call(uuid)
   end
 end
