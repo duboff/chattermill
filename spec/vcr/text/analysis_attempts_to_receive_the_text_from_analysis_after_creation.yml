@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api35.semantria.com/document?oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5&oauth_nonce=28783861506115572623&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1412721166&oauth_version=1.0
+    body:
+      encoding: UTF-8
+      string: '{"id":"7ee836a0-6029-4634-abaa-250be2356e9a","text":"Some text to analyse"}'
+    headers:
+      Authorization:
+      - oauth_version=1.0,oauth_timestamp=1412721166,oauth_nonce=28783861506115572623,oauth_signature_method=HMAC-SHA1,oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5,OAuth
+        realm=,oauth_signature=pU89SPcUJ%2FvA9x1j4Cm8ohi1dl4%3D
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Tue, 07 Oct 2014 22:32:48 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Language:
+      - en-US
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 07 Oct 2014 22:32:47 GMT
+- request:
+    method: get
+    uri: https://api35.semantria.com/document/7ee836a0-6029-4634-abaa-250be2356e9a.json?oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5&oauth_nonce=14071460735388427352&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1412721177&oauth_version=1.0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - oauth_version=1.0,oauth_timestamp=1412721177,oauth_nonce=14071460735388427352,oauth_signature_method=HMAC-SHA1,oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5,OAuth
+        realm=,oauth_signature=dUX4%2BXrJ1DzwEJlMI8J8rKbY9Jk%3D
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Tue, 07 Oct 2014 22:32:58 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - close
+      Access-Control-Allow-Origin:
+      - "*"
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store, max-age=0
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Language:
+      - en-US
+    body:
+      encoding: UTF-8
+      string: '{"language":"English","id":"7ee836a0-6029-4634-abaa-250be2356e9a","status":"PROCESSED","summary":"Some
+        text to analyse... ","sentiment_score":0.0,"sentiment_polarity":"neutral","config_id":"5a11ccd3-8b41-445b-974b-b7f7e2aca56b","source_text":"Some
+        text to analyse","language_score":2.0}'
+    http_version: 
+  recorded_at: Tue, 07 Oct 2014 22:32:58 GMT
+recorded_with: VCR 2.9.3

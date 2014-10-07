@@ -75,4 +75,7 @@ group :test do
   gem 'capybara-email'
   gem 'fuubar'
   gem 'stripe-ruby-mock'
+  gem 'webmock'
+  gem 'timecop'
+  gem 'vcr'
 end

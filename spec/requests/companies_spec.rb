@@ -48,7 +48,6 @@ describe "Companies API" do
   describe "POST /companies" do
     it 'creates a company from correct params' do
       sign_in_as_a_valid_user
-    
 
       company_params = {
         "company" => {

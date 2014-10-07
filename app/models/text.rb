@@ -6,10 +6,10 @@ class Text < ActiveRecord::Base
   after_create :process_text
 
   def process_text
-    ProcessText.call(body, uuid)
+    SendTextForAnalysis.call(body, uuid)
 
-    sleep(10)
-    
-    self.update(raw_analysis: GetProcessedText.call(uuid))
+    # sleep(10)
+
+    update(raw_analysis: GetProcessedText.call(uuid).to_json)
   end
 end
