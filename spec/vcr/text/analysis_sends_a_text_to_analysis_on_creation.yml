@@ -2,14 +2,15 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api35.semantria.com/document?oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5&oauth_nonce=20991635376032678725&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1412721154&oauth_version=1.0
+    uri: https://api35.semantria.com/document?oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5&oauth_nonce=11735286199977584980&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1412721694&oauth_version=1.0
     body:
       encoding: UTF-8
-      string: '{"id":"7ee836a0-6029-4634-abaa-250be2356e9a","text":"Some text to analyse"}'
+      string: '{"id":"7ee836a0-6029-4634-abaa-250be2356e9a","text":"What a great piece
+        of software"}'
     headers:
       Authorization:
-      - oauth_version=1.0,oauth_timestamp=1412721154,oauth_nonce=20991635376032678725,oauth_signature_method=HMAC-SHA1,oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5,OAuth
-        realm=,oauth_signature=o738DO2Yk2nzsI0KhoprID5zHj4%3D
+      - oauth_version=1.0,oauth_timestamp=1412721694,oauth_nonce=11735286199977584980,oauth_signature_method=HMAC-SHA1,oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5,OAuth
+        realm=,oauth_signature=YvkxONbvMrufg2Q7sgOdty4fyxQ%3D
   response:
     status:
       code: 202
@@ -18,7 +19,7 @@ http_interactions:
       Server:
       - nginx/1.4.7
       Date:
-      - Tue, 07 Oct 2014 22:32:36 GMT
+      - Tue, 07 Oct 2014 22:41:36 GMT
       Content-Length:
       - '0'
       Connection:
@@ -31,17 +32,17 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 07 Oct 2014 22:32:35 GMT
+  recorded_at: Tue, 07 Oct 2014 22:41:35 GMT
 - request:
     method: get
-    uri: https://api35.semantria.com/document/7ee836a0-6029-4634-abaa-250be2356e9a.json?oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5&oauth_nonce=24362336500886212995&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1412721165&oauth_version=1.0
+    uri: https://api35.semantria.com/document/7ee836a0-6029-4634-abaa-250be2356e9a.json?oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5&oauth_nonce=40785469651569355143&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1412721705&oauth_version=1.0
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Authorization:
-      - oauth_version=1.0,oauth_timestamp=1412721165,oauth_nonce=24362336500886212995,oauth_signature_method=HMAC-SHA1,oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5,OAuth
-        realm=,oauth_signature=TVz6q83c2Bqva50tTQ6uL6qAywA%3D
+      - oauth_version=1.0,oauth_timestamp=1412721705,oauth_nonce=40785469651569355143,oauth_signature_method=HMAC-SHA1,oauth_consumer_key=9ca68ae2-c2f1-4eed-be4f-b93f2dfdedb5,OAuth
+        realm=,oauth_signature=cRBrvYIzhuFyRvvCYfcYNBHaaUw%3D
   response:
     status:
       code: 200
@@ -50,7 +51,7 @@ http_interactions:
       Server:
       - nginx/1.4.7
       Date:
-      - Tue, 07 Oct 2014 22:32:47 GMT
+      - Tue, 07 Oct 2014 22:41:46 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -67,9 +68,11 @@ http_interactions:
       - en-US
     body:
       encoding: UTF-8
-      string: '{"language":"English","id":"7ee836a0-6029-4634-abaa-250be2356e9a","status":"PROCESSED","summary":"Some
-        text to analyse... ","sentiment_score":0.0,"sentiment_polarity":"neutral","config_id":"5a11ccd3-8b41-445b-974b-b7f7e2aca56b","source_text":"Some
-        text to analyse","language_score":2.0}'
+      string: '{"language":"English","id":"7ee836a0-6029-4634-abaa-250be2356e9a","status":"PROCESSED","themes":[{"sentiment_score":0.6,"strength_score":1.0,"title":"great
+        piece","sentiment_polarity":"positive","evidence":4,"is_about":true}],"phrases":[{"type":"detected","sentiment_score":0.6,"title":"great","sentiment_polarity":"positive","is_negated":false,"is_intensified":false}],"summary":"What
+        a great piece of software... ","auto_categories":[{"type":"node","categories":[{"type":"concept","strength_score":0.53317034,"title":"Revision_control"},{"type":"concept","strength_score":0.50208026,"title":"Source_code"}],"strength_score":0.72557276,"title":"Computer_Science"},{"type":"node","categories":[{"type":"concept","strength_score":0.5370734,"title":"Semantic_wikis"}],"strength_score":0.72028136,"title":"Internet"},{"type":"node","categories":[{"type":"concept","strength_score":0.55195427,"title":"Computer_occupations"}],"strength_score":0.7068586,"title":"IT"}],"sentiment_score":0.6,"sentiment_polarity":"positive","topics":[{"type":"concept","hitcount":0,"sentiment_score":0.6,"strength_score":0.76782453,"title":"Software
+        and Internet","sentiment_polarity":"positive"},{"type":"concept","hitcount":0,"sentiment_score":0.6,"strength_score":0.45223752,"title":"Hardware","sentiment_polarity":"positive"}],"config_id":"5a11ccd3-8b41-445b-974b-b7f7e2aca56b","source_text":"What
+        a great piece of software","language_score":5.0}'
     http_version: 
-  recorded_at: Tue, 07 Oct 2014 22:32:46 GMT
+  recorded_at: Tue, 07 Oct 2014 22:41:46 GMT
 recorded_with: VCR 2.9.3

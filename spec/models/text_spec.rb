@@ -18,17 +18,17 @@ describe Text do
     it 'sends a text to analysis on creation', :vcr do
       expect(SendTextForAnalysis).to receive(:call).and_call_original
 
-      Text.create(body: 'Some text to analyse', uuid: "7ee836a0-6029-4634-abaa-250be2356e9a")
+      create(:text)
     end
 
     it 'attempts to receive the text from analysis after creation', :vcr do
       expect(GetProcessedText).to receive(:call).and_call_original
 
-      Text.create(body: 'Some text to analyse', uuid: "7ee836a0-6029-4634-abaa-250be2356e9a")
+      create(:text)
     end
 
     it 'results are stored in a json field', :vcr do
-      text = Text.create(body: 'Some text to analyse', uuid: "7ee836a0-6029-4634-abaa-250be2356e9a")
+      text = create(:text)
 
       expect(text.raw_analysis).not_to be_empty
     end
