@@ -5,6 +5,10 @@ describe Text do
   subject { @text }
 
   it { should respond_to(:body) }
+  it { should respond_to(:uuid) }
+  it { should respond_to(:raw_analysis) }
+  
+
   it { should belong_to(:project) }
   it { should validate_presence_of(:body) }
   
@@ -23,6 +27,12 @@ describe Text do
       expect(GetProcessedText).to receive(:call)
 
       Text.create(body: "Some text to analyse", uuid: SecureRandom.uuid)
+    end
+
+    it 'results are stored in a json field' do
+      Text.create(body: "Some text to analyse", uuid: SecureRandom.uuid)
+      
+      expect(Text.raw_analysis).not_to be_empty 
     end
   end
 end

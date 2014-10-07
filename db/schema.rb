@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930194641) do
+ActiveRecord::Schema.define(version: 20141006232357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20140930194641) do
     t.datetime "updated_at"
     t.integer  "project_id"
     t.string   "uuid"
+    t.json     "raw_analysis"
   end
 
   add_index "texts", ["project_id"], name: "index_texts_on_project_id", using: :btree

@@ -10,6 +10,6 @@ class Text < ActiveRecord::Base
 
     sleep(10)
     
-    GetProcessedText.call(uuid)
+    self.update(raw_analysis: GetProcessedText.call(uuid))
   end
 end
