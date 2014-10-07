@@ -18,5 +18,11 @@ describe Text do
 
       Text.create(body: "Some text to analyse", uuid: SecureRandom.uuid)
     end
+    
+    it 'attempts to receive the text from analysis after creation' do
+      expect(GetProcessedText).to receive(:call)
+
+      Text.create(body: "Some text to analyse", uuid: SecureRandom.uuid)
+    end
   end
 end
