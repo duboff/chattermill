@@ -7,25 +7,26 @@ describe Project do
   it { should respond_to(:name) }
   it { should respond_to(:body) }
   it { should belong_to(:company) }
-  it { should validate_presence_of :name}
+  it { should validate_presence_of :name }
 
   it "#name returns a string" do
     expect(@project.name).to match 'Cool Project'
-  end  
+  end
 
   it "#body returns the right string" do
     expect(@project.body).to match 'Bla bla bla'
   end
 
   context "Creating texts" do
-    it 'text creation is triggered on project creation' do
+    it 'text creation is triggered on project creation', :vcr do
       expect(Text).to receive(:create)
 
       Project.create(name: "A cool project", body: 'Bla Baa')
     end
     it 'breaks body down and creates texts on project creation' do
+      allow_any_instance_of(Text).to receive(:process_text).and_return true
       new_project = Project.create(name: "Another cool project", body: fake_text)
-     
+
       expect(new_project.texts.count).to eq 24
       expect(new_project.texts.first.body).to eq "Bad experience. Very rude and inefficient customer service from staff and management. Rooms were not cleaned very well and they woke you up all hours of the night to turn down your bed. Very overpriced for a very bad experience. rooms were dated with furniture that was chipped and needed maintenance. management does not back up their name, service or efficiencies or lack there of. rude staff and management, unconsistent policies. if you are middle class then they want nothing to do with you. don't waste your money."
     end

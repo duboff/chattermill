@@ -176,7 +176,7 @@ Style/SpaceInsideHashLiteralBraces:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/StringLiterals:
-  Enabled: true
+  Enabled: false
 
 # Offense count: 23
 # Cop supports --auto-correct.
