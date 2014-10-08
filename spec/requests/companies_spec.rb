@@ -16,7 +16,7 @@ describe "Companies API" do
         sign_in_as_a_valid_user
       end
 
-      it 'returns a company if authorized' do     
+      it 'returns a company if authorized' do
         get "/api/v1/companies/#{@user.company_id}.json"
 
         expect(response.status).to eq 200
@@ -35,6 +35,8 @@ describe "Companies API" do
       end
 
       it 'company json embeds its projects' do
+        allow_any_instance_of(Text).to receive(:process_text).and_return true
+
         create(:project, company: @user.company)
 
         get "/api/v1/companies/#{@user.company_id}.json"
@@ -48,7 +50,6 @@ describe "Companies API" do
   describe "POST /companies" do
     it 'creates a company from correct params' do
       sign_in_as_a_valid_user
-    
 
       company_params = {
         "company" => {

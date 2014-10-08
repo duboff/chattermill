@@ -1,6 +1,6 @@
-class ProcessText
-  def self.call(body, uuid)
+class GetProcessedText
+  def self.call(id)
     client = Semantria::Client.new(ENV['SEMANTRIA_KEY'], ENV['SEMANTRIA_SECRET'])
-    client.queue_document(body, uuid)
+    client.get_document(id)
   end
 end

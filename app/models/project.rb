@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
 
   def create_texts
     body.split("\n").each do |para|
-      Text.create(body: para, uuid: SecureRandom.uuid, project_id: self.id)
+      Text.create(body: para, uuid: SecureRandom.uuid, project_id: id)
     end
   end
 end

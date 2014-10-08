@@ -1,14 +1,11 @@
 class Company < ActiveRecord::Base
   # include Stripe::Customer
-
   has_many :users
   has_many :projects
 
   validates_presence_of :name, :website
   validates_uniqueness_of :name, :website
   # validates :users, presence: true
-
-  # enum plan_id: [:basic, :pro]
 
   def plan
     Stripe::Plans[plan_id]

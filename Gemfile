@@ -36,15 +36,15 @@ gem 'sidekiq'
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_21]
+  gem 'binding_of_caller', platforms: [:mri_21]
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'html2haml'
   gem 'rails_layout'
-  gem 'rb-fchange', :require=>false
-  gem 'rb-fsevent', :require=>false
-  gem 'rb-inotify', :require=>false
+  gem 'rb-fchange', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-inotify', require: false
   gem "rubocop"
   gem 'meta_request'
 end
@@ -70,9 +70,12 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem "poltergeist"
-  gem "shoulda-matchers"
+  gem 'shoulda-matchers', require: false
   gem "spring-commands-rspec"
   gem 'capybara-email'
   gem 'fuubar'
   gem 'stripe-ruby-mock'
+  gem 'webmock'
+  gem 'timecop'
+  gem 'vcr'
 end

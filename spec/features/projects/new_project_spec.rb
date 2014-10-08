@@ -1,5 +1,6 @@
 feature 'Creating projects' do
   background do
+    allow_any_instance_of(Text).to receive(:process_text).and_return true
     @company = create(:company)
     @user = create(:user, company: @company)
     signin(@user.email, @user.password)
@@ -9,7 +10,7 @@ feature 'Creating projects' do
     visit "/companies/#{@company.id}/dashboard"
 
     expect(page).to have_content 'Create a new project'
-  end 
+  end
 
   scenario 'User fills in the form and is redirected to the project page', js: true do
     visit "/companies/#{@company.id}/projects/new"
