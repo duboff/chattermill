@@ -6,10 +6,8 @@ class Text < ActiveRecord::Base
   after_create :process_text
 
   def process_text
-    SendTextForAnalysis.call(body, uuid)
+    SemantriaSendWorker.perform_async(body, uuid)
 
-    # sleep(10)
-
-    update(raw_analysis: GetProcessedText.call(uuid).to_json)
+    SemantriaReceiveWorker.perform_in(10.seconds, uuid)
   end
 end
