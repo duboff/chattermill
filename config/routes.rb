@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   root to: 'home#index'
 
@@ -19,4 +21,3 @@ Rails.application.routes.draw do
 
   get '*path', to: 'home#index'
 end
-

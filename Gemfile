@@ -31,6 +31,7 @@ gem 'stripe-rails'
 gem 'httparty'
 gem 'semantria'
 gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', require: nil
 
 # Assets
 
