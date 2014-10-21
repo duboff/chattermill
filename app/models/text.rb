@@ -1,6 +1,8 @@
 class Text < ActiveRecord::Base
   belongs_to :project
 
+  has_many :themes
+
   validates_presence_of :body
 
   after_create :process_text

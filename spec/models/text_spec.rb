@@ -7,7 +7,9 @@ describe Text do
   it { should respond_to(:body) }
   it { should respond_to(:uuid) }
   it { should respond_to(:raw_analysis) }
+
   it { should belong_to(:project) }
+  it { should have_many(:themes) }
   it { should validate_presence_of(:body) }
 
   it '#body returns a string' do
