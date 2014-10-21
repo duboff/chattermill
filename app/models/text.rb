@@ -12,4 +12,16 @@ class Text < ActiveRecord::Base
 
     SemantriaReceiveWorker.perform_in(10.seconds, uuid)
   end
+
+  def create_themes
+    theme_array.each do |theme|
+      Theme.create(text: self, sentiment_score: theme[:sentiment_score], strength_score: theme[:strength_score], polarity: theme[:polarity])
+    end
+  end
+
+  private
+
+  def theme_array
+    JSON.parse(raw_analysis)[:themes]
+  end
 end

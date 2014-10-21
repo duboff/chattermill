@@ -4,5 +4,6 @@ class SemantriaReceiveWorker
   def perform(uuid)
     text = Text.find_by_uuid(uuid)
     text.update(raw_analysis: GetProcessedText.call(uuid).to_json)
+    text.create_themes
   end
 end

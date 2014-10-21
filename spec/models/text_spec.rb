@@ -35,4 +35,9 @@ describe Text do
       expect(text.raw_analysis).not_to be_empty
     end
   end
+  context 'Themes' do
+    it 'themes are created when text analysis is received from Semantria' do
+      
+    end
+  end
 end
