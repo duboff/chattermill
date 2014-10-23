@@ -15,13 +15,13 @@ class Text < ActiveRecord::Base
 
   def create_themes
     theme_array.each do |theme|
-      Theme.create(text: self, sentiment_score: theme[:sentiment_score], strength_score: theme[:strength_score], polarity: theme[:polarity])
+      Theme.create(text: self, body: theme['title'], sentiment_score: theme['sentiment_score'], sentiment_polarity: theme['sentiment_polarity'])
     end
   end
 
   private
 
   def theme_array
-    JSON.parse(raw_analysis)[:themes]
+    raw_analysis["themes"]
   end
 end
