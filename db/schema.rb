@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006232357) do
+ActiveRecord::Schema.define(version: 20141021220852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 20141006232357) do
   end
 
   add_index "texts", ["project_id"], name: "index_texts_on_project_id", using: :btree
+
+  create_table "themes", force: true do |t|
+    t.string   "body"
+    t.float    "sentiment_score"
+    t.string   "sentiment_polarity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "text_id"
+  end
+
+  add_index "themes", ["text_id"], name: "index_themes_on_text_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
