@@ -1,4 +1,4 @@
-feature 'Creating projects' do
+feature 'Creating projects', :vcr do
   background do
     allow_any_instance_of(Text).to receive(:process_text).and_return true
     @company = create(:company)
