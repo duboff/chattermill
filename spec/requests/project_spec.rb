@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Project API" do
   describe "GET /projects/:id" do
-    it "returns redicrect if not authorized" do
+    it "returns redirect if not authorized" do
       allow_any_instance_of(Text).to receive(:process_text).and_return true
       project = create(:project)
 
@@ -18,9 +18,10 @@ describe "Project API" do
         @user = create(:user, company: create(:company))
         sign_in_as_a_valid_user
         @project = create(:project, company: @user.company)
+        @theme = create(:theme, text: @project.texts.first)
       end
 
-      it 'returns a company if authorized' do
+      it 'returns a the right project' do
         get "/api/v1/projects/#{@project.id}.json"
 
         expect(response.status).to eq 200
@@ -31,6 +32,21 @@ describe "Project API" do
         expect(json[:body]).to eq @project.body
       end
 
+      it 'returns project text ids' do
+        get "/api/v1/projects/#{@project.id}.json"
+
+        json = JSON.parse(response.body).with_indifferent_access[:project]
+
+        expect(json[:text_ids].count).to eq 1
+      end
+
+      it 'returns project themes' do
+        get "/api/v1/projects/#{@project.id}.json"
+
+        json = JSON.parse(response.body).with_indifferent_access[:project]
+        expect(json[:theme_ids].count).to eq 1
+        expect(json[:theme_ids]).to eq [@theme.id]
+      end
     end
   end
   describe "POST /projects" do
