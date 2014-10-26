@@ -7,6 +7,12 @@ class Project < ActiveRecord::Base
 
   after_create :create_texts
 
+  def sentiment_score
+    themes.map(&:sentiment_score).inject(&:+) / themes.count
+  end
+
+  private
+
   def create_texts
     body.split("\n").each do |para|
       Text.create(body: para, uuid: SecureRandom.uuid, project_id: id)
