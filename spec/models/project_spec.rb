@@ -28,6 +28,7 @@ describe Project do
 
       Project.create(name: "A cool project", body: 'Bla Baa')
     end
+
     it 'breaks body down and creates texts on project creation' do
       allow_any_instance_of(Text).to receive(:process_text).and_return true
       new_project = Project.create(name: "Another cool project", body: fake_text)
