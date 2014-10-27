@@ -1,3 +1,7 @@
 section
   h1 = name
   p = body
+  p
+    link-to "themes" model | List of themes
+section.center-block
+  = outlet

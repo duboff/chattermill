@@ -27,4 +27,5 @@ App.Router.map ()->
         @route 'new'
         @resource 'project', path: '/:project_id', ->
           @route 'edit'
+          @resource 'themes'
 

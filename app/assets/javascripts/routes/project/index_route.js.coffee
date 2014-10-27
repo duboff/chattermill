@@ -1,2 +1,2 @@
-App.ProjectsIndexRoute = Ember.Route.extend
+App.ProjectsRoute = Ember.Route.extend
   model: -> @modelFor('company').get('projects')

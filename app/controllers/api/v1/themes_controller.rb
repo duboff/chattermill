@@ -7,6 +7,10 @@ class Api::V1::ThemesController < ApplicationController
     respond_with theme
   end
 
+  def index
+    respond_with Theme.all
+  end
+
   private
 
   def theme
