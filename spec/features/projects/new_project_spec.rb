@@ -13,7 +13,7 @@ feature 'Creating projects', :vcr do
   end
 
   scenario 'User fills in the form and is redirected to the project page', js: true do
-    visit "/companies/#{@company.id}/projects/new"
+    visit "/projects/new"
     fill_in "Project name", with: 'My awesome project'
     fill_in 'project_body', with: 'bla bla'
     click_button 'Start the project'

@@ -7,10 +7,6 @@ class Project < ActiveRecord::Base
 
   after_create :create_texts
 
-  def sentiment_score
-    (themes.map(&:sentiment_score).inject(&:+) / themes.count).round(2)
-  end
-
   private
 
   def create_texts
