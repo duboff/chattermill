@@ -1,7 +1,5 @@
 section
-  h1 = name
-  p = body
-  p
-    link-to "themes" model | List of themes
-section.center-block
-  = outlet
+  h1 #{name}: #{sentiment_score}
+section
+  each theme in model.themes
+    li #{theme.body}: #{theme.sentiment_score}

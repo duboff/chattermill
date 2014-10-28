@@ -8,6 +8,6 @@ section
     model.email
 section
   if model.company
-    h1 = model.company.name
+    h1 = link-to 'company' model.company | #{model.company.name}
   else
     link-to 'companies.new' | Create company

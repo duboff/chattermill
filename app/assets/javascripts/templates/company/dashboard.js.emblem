@@ -1,5 +1,10 @@
 h1 Dashboard
-p
-  link-to "projects.new" | Create a new project
-p
-  link-to "projects" model | List of projects
+
+section
+  each project in model.projects
+    li
+      link-to "project" project | #{project.name}
+
+section
+  p
+    link-to "projects.new" | Create a new project

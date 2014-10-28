@@ -4,8 +4,6 @@ App.Router.reopen
   rootURL: '/'
 
 App.Router.map ()->
-  # @resource('posts')
-
   @route 'welcome', path: '/'
   @route 'about', path: '/about'
 
@@ -15,17 +13,11 @@ App.Router.map ()->
     @route 'new'
     @resource 'company', path: '/:company_id', ->
       @route 'edit'
-      # @resource 'users', ->
-      #   @route 'invite'
-      # @route 'plans'
-  
       @resource 'subscription', ->
         @route 'new'
         @route 'edit'
       @route 'dashboard'
-      @resource 'projects', ->
-        @route 'new'
-        @resource 'project', path: '/:project_id', ->
-          @route 'edit'
-          @resource 'themes'
+  @resource 'projects', ->
+    @route 'new'
+    @resource 'project', path: '/:project_id'
 

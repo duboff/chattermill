@@ -1,2 +1,4 @@
-each 
-  li #{name}: #{body}
+section
+  each project in controller
+    li 
+      link-to "project" project | #{project.name}

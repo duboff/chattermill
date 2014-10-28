@@ -1,5 +1,6 @@
 App.Project = DS.Model.extend
   name: DS.attr 'string'
   body: DS.attr 'string'
-  themes: DS.hasMany('theme', async: true)
-  company: DS.belongsTo('company')
+  sentiment_score: DS.attr 'number'
+  themes: DS.hasMany('theme', {async: true})
+  company: DS.belongsTo('company', {async: true})
