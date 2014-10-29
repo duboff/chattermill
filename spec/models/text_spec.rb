@@ -43,6 +43,9 @@ describe Text do
       text.reload
 
       expect(text.themes.count).to eq 1
+      expect(text.themes.last.body).to eq "great piece"
+      expect(text.themes.last.sentiment_score).to eq 0.6
+      expect(text.themes.last.sentiment_polarity).to eq "positive"
     end
   end
 end

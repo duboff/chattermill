@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :theme do
-    body "MyString"
-    sentiment_score 1.5
-    sentiment_polarity "MyString"
+    body "awesome food"
+    sentiment_score 0.8
+    sentiment_polarity "positive"
   end
 end

@@ -1,3 +1,5 @@
 section
-  h1 = name
-  p = body
+  h1 #{name}: #{sentiment_score}
+section
+  each theme in model.themes
+    li #{theme.body}: #{theme.sentiment_score}

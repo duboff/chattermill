@@ -6,7 +6,12 @@ describe Project do
 
   it { should respond_to(:name) }
   it { should respond_to(:body) }
+
   it { should belong_to(:company) }
+  it { should have_many(:texts) }
+  it { should have_many(:themes) }
+
+
   it { should validate_presence_of :name }
 
   it "#name returns a string" do
@@ -23,6 +28,7 @@ describe Project do
 
       Project.create(name: "A cool project", body: 'Bla Baa')
     end
+
     it 'breaks body down and creates texts on project creation' do
       allow_any_instance_of(Text).to receive(:process_text).and_return true
       new_project = Project.create(name: "Another cool project", body: fake_text)

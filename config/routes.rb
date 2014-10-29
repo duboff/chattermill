@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :companies
       resources :plans
       resources :projects
+      resources :themes
     end
   end
 

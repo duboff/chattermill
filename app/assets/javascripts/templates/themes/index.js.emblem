@@ -1,0 +1,4 @@
+section
+  h1 About the website
+each 
+  li #{body}: #{sentiment_score}
