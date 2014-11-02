@@ -1,5 +1,5 @@
 section
-  h1 #{name}: #{sentiment_score}
+  h1 #{name}: #{sentimentScore}
 section
   each theme in model.themes
-    li #{theme.body}: #{theme.sentiment_score}
+    li #{theme.body}: #{theme.sentimentScore}
