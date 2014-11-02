@@ -2,6 +2,8 @@
 #= require jquery_ujs
 #= require bootstrap-sprockets
 #= require signup
+#= require d3
+#= require d3-cloud
 #= require handlebars
 #= require ember
 #= require ember-data

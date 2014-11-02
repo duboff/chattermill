@@ -34,6 +34,8 @@ gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', require: nil
 
 # Assets
+gem "rails-assets-d3"
+gem "rails-assets-d3-cloud"
 
 group :development do
   gem 'better_errors'
