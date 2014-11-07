@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-ruby '2.1.3'
+ruby '2.1.4'
 
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.7'
 gem 'puma'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -34,6 +34,7 @@ gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', require: nil
 
 # Assets
+gem "rails-assets-lodash"
 gem "rails-assets-d3"
 gem "rails-assets-d3-cloud"
 
@@ -43,6 +44,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
+  gem 'guard-puma'
   gem 'html2haml'
   gem 'rails_layout'
   gem 'rb-fchange', require: false

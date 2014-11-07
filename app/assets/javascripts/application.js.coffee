@@ -3,7 +3,8 @@
 #= require bootstrap-sprockets
 #= require signup
 #= require d3
-#= require d3-cloud
+#= require d3-cloud/d3.layout.cloud
+#= require lodash
 #= require handlebars
 #= require ember
 #= require ember-data
