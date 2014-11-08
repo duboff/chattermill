@@ -20,4 +20,4 @@ App.Router.map ()->
   @resource 'projects', ->
     @route 'new'
     @resource 'project', path: '/:project_id'
-
+  @resource 'themes'

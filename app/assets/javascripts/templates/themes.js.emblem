@@ -1,0 +1,7 @@
+section
+  h1 Themes
+section
+  p #{themes}
+section
+  each theme in model
+    li #{theme.body}: #{theme.sentimentScore}

@@ -1,5 +1,5 @@
 // Fetched from channel: release, with url http://builds.emberjs.com/beta/ember-data.js
-// Fetched on: 2014-11-02T17:52:08Z
+// Fetched on: 2014-11-07T19:09:00Z
 (function(global){
 var define, requireModule, require, requirejs;
 

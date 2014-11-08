@@ -12,6 +12,11 @@ guard 'rails' do
   watch(%r{^(config|lib)/.*})
 end
 
+# guard 'puma', :port => 4000 do
+#   watch('Gemfile.lock')
+#   watch(%r{^config|lib/.*})
+# end
+
 
 # Note: The cmd option is now required due to the increasing number of ways
 #       rspec may be run, below are examples of the most common uses.

@@ -1,0 +1,16 @@
+.borderless tbody tr td, .borderless thead tr th {
+    border: none;
+}
+
+td.negative {
+    color: red;
+}
+
+td.positive {
+    color: green;
+}
+
+.details td:first-child {
+    width: 200px;
+}
+
