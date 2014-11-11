@@ -1,7 +1,10 @@
 section
   h1 Themes
+
 section
-  p #{themes}
-section
-  each theme in model
+  each theme in themes
     li #{theme.body}: #{theme.sentimentScore}
+
+section
+  .col-md-8#div-word-cloud
+    word-cloud data=themes topicsController=controller

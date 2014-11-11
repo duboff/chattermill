@@ -2,5 +2,6 @@ section
   h1 #{name}: #{sentimentScore}
 
 section
-  outlet themes 
+  outlet themes
+
 

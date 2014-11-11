@@ -6,8 +6,10 @@ App.WordCloudComponent = Ember.Component.extend({
      * Generate a word cloud when render the component
      * @method didInsertElement
      */
+    
+    
     didInsertElement: function() {
-        Ember.run.once(this, 'generateWordCloud');
+      this.generateWordCloud();
     },
 
     /**
@@ -19,6 +21,7 @@ App.WordCloudComponent = Ember.Component.extend({
             themes = this.get('data'),
             maxScore,
             wordScale;
+
         if (!themes || _.isEmpty(themes)) {
             return;
         }
@@ -50,6 +53,9 @@ App.WordCloudComponent = Ember.Component.extend({
 
         //Render word cloud
         function draw(words) {
+            var svg = $('#word-cloud-themes')
+            svg.remove()
+
             d3.select("body .col-md-8")
                 .append("svg")
                 .attr("id", "word-cloud-themes")
@@ -72,7 +78,7 @@ App.WordCloudComponent = Ember.Component.extend({
                 //     that.get('themesController').send('setSelectedtheme', d);
                 // });
         }
-    },
+    }.observes('data'),
 
     /**
      * Get color according to sentiment score

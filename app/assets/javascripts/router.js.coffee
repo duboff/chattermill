@@ -19,5 +19,5 @@ App.Router.map ()->
       @route 'dashboard'
   @resource 'projects', ->
     @route 'new'
-    @resource 'project', path: '/:project_id'
-  @resource 'themes'
+    @resource 'project', path: '/:project_id', ->
+      @resource 'themes'

@@ -10,11 +10,11 @@
 #= require ./router
 #= require_self
 
-window.hasManyHack = (parentRecord, collectionName) ->
-  parentId            = parentRecord.get 'id'
-  relationships       = Em.get parentRecord.constructor, 'relationshipsByName'
-  relationship        = relationships.get collectionName
-  idPath              = parentRecord.constructor.typeKey + '.id'
-  parentRecord.get(collectionName).then ->
-    parentRecord.store.filter relationship.type, (record) ->
-      record.get(idPath) is parentId
+# window.hasManyHack = (parentRecord, collectionName) ->
+#   parentId            = parentRecord.get 'id'
+#   relationships       = Em.get parentRecord.constructor, 'relationshipsByName'
+#   relationship        = relationships.get collectionName
+#   idPath              = parentRecord.constructor.typeKey + '.id'
+#   parentRecord.get(collectionName).then ->
+#     parentRecord.store.filter relationship.type, (record) ->
+#       record.get(idPath) is parentId

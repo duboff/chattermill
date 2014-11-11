@@ -1,4 +1,6 @@
+/*global _:true*/
 App.ThemesController = Ember.ArrayController.extend({
+    needs: 'project',
     selectedTopic: null,
 
     /**
@@ -10,24 +12,24 @@ App.ThemesController = Ember.ArrayController.extend({
         return this.get('selectedTopic');
     }.property('selectedTopic'),
 
-    /**
+    /*
      * Load the topics from fixtures and transform each item in a ember object.
      * @method generateTopics
      * @return {Array} Returns topics
      */
     generateTopics: function() {
-        var topics = this.get('content.content');
-        if (!topics || _.isEmpty(topics)) {
+     
+      var topics = this.get('content.content');
+
+      if (!topics || _.isEmpty(topics)) {
             return topics;
         }
 
-        debugger
-
-        topics = _.map(topics, function(topic) {
-            return Ember.Object.create(topic.get('data'));
+      var bla = topics.map( function(theme) {
+          
+          return Ember.Object.create(theme.get('data'));
         });
-
-        return topics;
+      return bla;
     },
 
     /**
@@ -36,8 +38,8 @@ App.ThemesController = Ember.ArrayController.extend({
      * @type {Object} Returns topics
      */
     themes: function() {
-        var topics = this.generateTopics();
-
+        var topics = this.generateTopics()
+        
         if (topics) {
             topics = topics.map(function(topic) {
                 return _.pick(topic, ['body', 'sentimentScore']);
