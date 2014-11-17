@@ -6,8 +6,6 @@ App.WordCloudComponent = Ember.Component.extend({
      * Generate a word cloud when render the component
      * @method didInsertElement
      */
-    
-    
     didInsertElement: function() {
       this.generateWordCloud();
     },
@@ -41,8 +39,10 @@ App.WordCloudComponent = Ember.Component.extend({
         });
 
         //Config word cloud
+        var fontSize = d3.scale.log().range([10, 100]);
+
         d3.layout.cloud()
-            .size([600, 600])
+            .size([960, 600])
             .words(themes)
             .padding(2)
             .rotate(function() { return ~~(Math.random() * 2) * 90; })
@@ -67,16 +67,16 @@ App.WordCloudComponent = Ember.Component.extend({
                 .data(words)
                 .enter().append("text")
                 .style("font-size", function(d) { return d.size + "px"; })
-                .style("font-family", "Impact")
+                .style("font-family", "Helvetica")
                 .style("fill", function(d) { return that.getColorBySentiment(d.sentimentScore); })
                 .attr("text-anchor", "middle")
                 .attr("transform", function(d) {
                     return "translate(" + [d.x, d.y] + ")rotate(" + 0 + ")";
                 })
                 .text(function(d) { return d.text; })
-                // .on("click", function(d) {
-                //     that.get('themesController').send('setSelectedtheme', d);
-                // });
+                .on("click", function(d) {
+                    that.get('themesController').send('setSelectedTheme', d);
+                });
         }
     }.observes('data'),
 

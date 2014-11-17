@@ -1,0 +1,1 @@
+App.ThemeContextComponent = Ember.Component.extend()

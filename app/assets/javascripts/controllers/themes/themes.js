@@ -1,33 +1,30 @@
 /*global _:true*/
 App.ThemesController = Ember.ArrayController.extend({
     needs: 'project',
-    selectedTopic: null,
+    selectedTheme: null,
 
     /**
      * Topic selected on the word cloud by user. This property is used in topic details component
      * @property topic
      * @type {Object}
      */
-    topic: function() {
-        return this.get('selectedTopic');
-    }.property('selectedTopic'),
+    theme: function() {
+        return this.get('selectedTheme');
+    }.property('selectedTheme'),
 
     /*
      * Load the topics from fixtures and transform each item in a ember object.
      * @method generateTopics
      * @return {Array} Returns topics
      */
-    generateTopics: function() {
-     
+    generateThemes: function() {
       var topics = this.get('content.content');
 
       if (!topics || _.isEmpty(topics)) {
-            return topics;
+        return topics;
         }
-
       var bla = topics.map( function(theme) {
-          
-          return Ember.Object.create(theme.get('data'));
+        return Ember.Object.create(theme.get('data'));
         });
       return bla;
     },
@@ -38,16 +35,16 @@ App.ThemesController = Ember.ArrayController.extend({
      * @type {Object} Returns topics
      */
     themes: function() {
-        var topics = this.generateTopics()
+        var topics = this.generateThemes()
         
         if (topics) {
             topics = topics.map(function(topic) {
-                return _.pick(topic, ['body', 'sentimentScore']);
+                return _.pick(topic, ['body', 'sentimentScore', 'id']);
             });
         }
 
         return topics;
-    }.property('@each.body', '@each.sentimentScore'),
+    }.property('@each.body', '@each.sentimentScore', '@each.id'),
 
     actions: {
         /**
@@ -55,8 +52,8 @@ App.ThemesController = Ember.ArrayController.extend({
          * @method setSelectedTopic
          * @param {Object} selected topic
          */
-        setSelectedTopic: function(topic) {
-            this.set('selectedTopic', topic);
+        setSelectedTheme: function(theme) {
+          this.set('selectedTheme', theme);
         }
     }
 });
