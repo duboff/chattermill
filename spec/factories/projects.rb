@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :project do
     name "MyString"
-    body "MyText"
+    body "Cool Project"
+    company
   end
 end

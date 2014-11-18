@@ -9,7 +9,8 @@ describe Text do
   it { should respond_to(:raw_analysis) }
 
   it { should belong_to(:project) }
-  it { should have_many(:themes) }
+  it { should have_many(:theme_relations) }
+  it { should have_many(:themes).through(:theme_relations) }
   it { should validate_presence_of(:body) }
 
   it '#body returns a string' do
@@ -45,7 +46,6 @@ describe Text do
       expect(text.themes.count).to eq 1
       expect(text.themes.last.body).to eq "great piece"
       expect(text.themes.last.sentiment_score).to eq 0.6
-      expect(text.themes.last.sentiment_polarity).to eq "positive"
     end
   end
 end

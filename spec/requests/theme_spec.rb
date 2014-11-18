@@ -4,8 +4,13 @@ describe "Project API" do
   context 'authorized' do
 
     before do
-      @theme = create(:theme, text: create(:text, project: create(:project)))
-      @user = create(:user, company: create(:company))
+      project = create(:project)
+      @text = create(:text, project: project)
+      @theme = create(:theme, project: project)
+      @theme.texts << @text
+      @theme.save
+
+      @user = create(:user, company: project.company)
       sign_in_as_a_valid_user
     end
 
@@ -18,8 +23,7 @@ describe "Project API" do
 
       expect(json[:body]).to eq @theme.body
       expect(json[:sentiment_score]).to eq @theme.sentiment_score
-      expect(json[:sentiment_polarity]).to eq @theme.sentiment_polarity
-      expect(json[:project_id]).to eq @theme.project.id
+      expect(json[:text_ids]).to eq [@text.id]
     end
   end 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021220852) do
+ActiveRecord::Schema.define(version: 20141118000401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,16 @@ ActiveRecord::Schema.define(version: 20141021220852) do
 
   add_index "texts", ["project_id"], name: "index_texts_on_project_id", using: :btree
 
+  create_table "theme_relations", force: true do |t|
+    t.integer  "theme_id"
+    t.integer  "text_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "theme_relations", ["text_id"], name: "index_theme_relations_on_text_id", using: :btree
+  add_index "theme_relations", ["theme_id"], name: "index_theme_relations_on_theme_id", using: :btree
+
   create_table "themes", force: true do |t|
     t.string   "body"
     t.float    "sentiment_score"
@@ -85,8 +95,10 @@ ActiveRecord::Schema.define(version: 20141021220852) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "text_id"
+    t.integer  "project_id"
   end
 
+  add_index "themes", ["project_id"], name: "index_themes_on_project_id", using: :btree
   add_index "themes", ["text_id"], name: "index_themes_on_text_id", using: :btree
 
   create_table "users", force: true do |t|

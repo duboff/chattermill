@@ -1,7 +1,8 @@
 class Theme < ActiveRecord::Base
-  belongs_to :text
+  has_many :theme_relations
+  has_many :texts, through: :theme_relations
 
-  delegate :project, to: :text, allow_nil: true
+  belongs_to :project
 
-  validates_presence_of :body, :sentiment_score, :sentiment_polarity
+  validates_presence_of :body, :sentiment_score
 end

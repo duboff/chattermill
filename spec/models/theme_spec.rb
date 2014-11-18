@@ -11,11 +11,12 @@ describe Theme do
   it { should respond_to(:sentiment_polarity) }
   it { should respond_to(:project) }
 
-  it { should belong_to(:text) }
+  # it { should belong_to(:text) }
+  it { should have_many(:theme_relations) }
+  it { should have_many(:texts).through(:theme_relations) }
 
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:sentiment_score) }
-  it { should validate_presence_of(:sentiment_polarity) }
 
   it '#body returns a string' do
     expect(@theme.body).to match 'Some body'
