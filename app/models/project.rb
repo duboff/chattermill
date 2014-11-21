@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   belongs_to :company
   has_many :texts
-  has_many :themes, through: :texts
+  has_many :themes
 
   validates_presence_of :name, :body
 

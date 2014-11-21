@@ -8,7 +8,7 @@ feature 'Creating projects', :vcr do
 
   scenario 'On the company page there is a link to upload texts', js: true do
     visit "/companies/#{@company.id}/dashboard"
-
+    
     expect(page).to have_content 'Create a new project'
   end
 

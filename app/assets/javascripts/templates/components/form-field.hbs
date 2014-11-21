@@ -1,0 +1,11 @@
+<div class="form-group">
+  <label class="col-sm-2 control-label" {{bind-attr for=fieldId}}>{{label}}</label>
+  <div class="col-sm-10">
+    {{#if isTextArea}}
+      {{textarea value=value id=fieldId}}
+    {{else}}
+      {{input type=type value=value id=fieldId class="form-control"}}
+    {{/if}}
+  </div>
+</div>
+

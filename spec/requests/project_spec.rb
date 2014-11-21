@@ -15,10 +15,10 @@ describe "Project API" do
 
       before do
         allow_any_instance_of(Text).to receive(:process_text).and_return true
-        @user = create(:user, company: create(:company))
+        @user = create(:user)
         sign_in_as_a_valid_user
         @project = create(:project, company: @user.company)
-        @theme = create(:theme, text: @project.texts.first)
+        @theme = create(:theme, project: @project)
       end
 
       it 'returns a the right project' do

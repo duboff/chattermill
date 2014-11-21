@@ -6,6 +6,8 @@ App.Router.reopen
 App.Router.map ()->
   @route 'welcome', path: '/'
   @route 'about', path: '/about'
+  @route 'empty', path: '/users/sign_in'
+  @route 'empty', path: '/users/sign_up'
 
   @resource 'user', path: '/users/:user_id'
 

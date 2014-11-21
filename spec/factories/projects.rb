@@ -4,6 +4,5 @@ FactoryGirl.define do
   factory :project do
     name "MyString"
     body "Cool Project"
-    company
   end
 end
