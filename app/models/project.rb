@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   has_many :texts
   has_many :themes
 
-  validates_presence_of :name, :body
+  validates_presence_of :name, :body, :company_id
 
   after_create :create_texts
 

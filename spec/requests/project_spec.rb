@@ -4,7 +4,7 @@ describe "Project API" do
   describe "GET /projects/:id" do
     it "returns redirect if not authorized" do
       allow_any_instance_of(Text).to receive(:process_text).and_return true
-      project = create(:project)
+      project = create(:project_with_company)
 
       get "/api/v1/projects/#{project.id}"
 
@@ -15,7 +15,7 @@ describe "Project API" do
 
       before do
         allow_any_instance_of(Text).to receive(:process_text).and_return true
-        @user = create(:user)
+        @user = create(:user_with_company)
         sign_in_as_a_valid_user
         @project = create(:project, company: @user.company)
         @theme = create(:theme, project: @project)

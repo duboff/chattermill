@@ -1,7 +1,12 @@
 App.ProjectsNewRoute = Ember.Route.extend
-  setupController: (controller) ->
-    controller.set 'fields', {}
-    controller.set 'company', @modelFor('company')
+  model: ->
+    @store.createRecord 'project'
+  actions:
+    createProject: ->
+      company = @modelFor('company')
+      @currentModel.set('company', company)
+      @currentModel.save().then (model) =>
+        @transitionTo 'project', model
 
     
     

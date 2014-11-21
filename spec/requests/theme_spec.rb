@@ -4,7 +4,7 @@ describe "Project API" do
   context 'authorized' do
 
     before do
-      project = create(:project)
+      project = create(:project_with_company)
       @text = create(:text, project: project)
       @theme = create(:theme, project: project)
       @theme.texts << @text

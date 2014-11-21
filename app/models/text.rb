@@ -4,7 +4,7 @@ class Text < ActiveRecord::Base
   has_many :theme_relations
   has_many :themes, through: :theme_relations
 
-  validates_presence_of :body
+  validates_presence_of :body, :project_id
 
   after_create :process_text
 

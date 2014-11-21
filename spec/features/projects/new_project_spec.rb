@@ -13,10 +13,12 @@ feature 'Creating projects', :vcr do
   end
 
   scenario 'User fills in the form and is redirected to the project page', js: true do
-    visit "/projects/new"
-    fill_in "Project name", with: 'My awesome project'
-    fill_in 'project_body', with: 'bla bla'
-    click_button 'Start the project'
+    visit "/companies/#{@company.id}/dashboard"
+    click_link 'Create a new project'
+
+    fill_in "Project Name", with: 'My awesome project'
+    fill_in 'Project Body', with: 'bla bla'
+    click_button 'Create Project'
 
     expect(page).to have_content 'My awesome project'
   end

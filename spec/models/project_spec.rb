@@ -11,7 +11,6 @@ describe Project do
   it { should have_many(:texts) }
   it { should have_many(:themes) }
 
-
   it { should validate_presence_of :name }
 
   it "#name returns a string" do
@@ -26,12 +25,12 @@ describe Project do
     it 'text creation is triggered on project creation', :vcr do
       expect(Text).to receive(:create)
 
-      Project.create(name: "A cool project", body: 'Bla Baa')
+      Project.create(name: "A cool project", body: 'Bla Baa', company_id: 1)
     end
 
     it 'breaks body down and creates texts on project creation' do
       allow_any_instance_of(Text).to receive(:process_text).and_return true
-      new_project = Project.create(name: "Another cool project", body: fake_text)
+      new_project = Project.create(name: "Another cool project", body: fake_text, company_id: 1)
 
       expect(new_project.texts.count).to eq 24
       expect(new_project.texts.first.body).to eq "Bad experience. Very rude and inefficient customer service from staff and management. Rooms were not cleaned very well and they woke you up all hours of the night to turn down your bed. Very overpriced for a very bad experience. rooms were dated with furniture that was chipped and needed maintenance. management does not back up their name, service or efficiencies or lack there of. rude staff and management, unconsistent policies. if you are middle class then they want nothing to do with you. don't waste your money."
