@@ -94,12 +94,10 @@ ActiveRecord::Schema.define(version: 20141118000401) do
     t.string   "sentiment_polarity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "text_id"
     t.integer  "project_id"
   end
 
   add_index "themes", ["project_id"], name: "index_themes_on_project_id", using: :btree
-  add_index "themes", ["text_id"], name: "index_themes_on_text_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
