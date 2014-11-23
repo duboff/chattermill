@@ -1,0 +1,7 @@
+<section>
+  <h1>New Project</h2>
+  {{#object-form for=model action="createProject" formClass="form-horizontal" buttonLabel="Create Project"}}
+    {{form-field for='name' label="Project Name"}}
+    {{form-field type="textarea" for='body' label="Project Body"}}
+  {{/object-form}}
+</section>
