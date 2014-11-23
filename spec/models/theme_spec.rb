@@ -11,7 +11,6 @@ describe Theme do
   it { should respond_to(:sentiment_polarity) }
   it { should respond_to(:project) }
 
-  # it { should belong_to(:text) }
   it { should have_many(:theme_relations) }
   it { should have_many(:texts).through(:theme_relations) }
 
@@ -20,5 +19,9 @@ describe Theme do
 
   it '#body returns a string' do
     expect(@theme.body).to match 'Some body'
+  end
+
+  it '#sentiment_score returns an integer' do
+    expect(@theme.sentiment_score).to eq 0.75
   end
 end

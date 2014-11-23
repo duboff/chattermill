@@ -25,5 +25,5 @@ describe "Project API" do
       expect(json[:sentiment_score]).to eq @theme.sentiment_score
       expect(json[:text_ids]).to eq [@text.id]
     end
-  end 
+  end
 end
