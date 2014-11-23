@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :plans
       resources :projects
       resources :themes
+      resources :texts
     end
   end
 
