@@ -5,4 +5,8 @@ class Theme < ActiveRecord::Base
   belongs_to :project
 
   validates_presence_of :body, :sentiment_score
+
+  def weight
+    texts.count
+  end
 end
