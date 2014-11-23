@@ -47,5 +47,16 @@ describe Text do
       expect(text.themes.last.body).to eq "great piece"
       expect(text.themes.last.sentiment_score).to eq 0.6
     end
+    it 'when another text has the same theme it uses the same object', :vcr do
+      text = create(:text)
+      new_text = create(:text, uuid: SecureRandom.uuid)
+
+      text.reload
+      new_text.reload
+
+      expect(new_text.themes.count).to eq 1
+      expect(Theme.count).to eq 1
+      expect(new_text.themes.first.texts).to eq [text, new_text]
+    end
   end
 end
