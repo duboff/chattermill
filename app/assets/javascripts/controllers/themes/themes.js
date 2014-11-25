@@ -1,6 +1,5 @@
 /*global _:true*/
 App.ThemesController = Ember.ArrayController.extend({
-    needs: 'project',
     selectedTheme: null,
 
     /**
@@ -29,29 +28,18 @@ App.ThemesController = Ember.ArrayController.extend({
       return bla;
     },
 
-    /**
-     * Topics loaded from fixtures
-     * @property topics
-     * @type {Object} Returns topics
-     */
     themes: function() {
-        var topics = this.generateThemes()
+        var topics = this.generateThemes();
         
         if (topics) {
             topics = topics.map(function(topic) {
-                return _.pick(topic, ['body', 'sentimentScore', 'id']);
+                return _.pick(topic, ['body', 'sentimentScore', 'id', 'weight']);
             });
         }
-
         return topics;
-    }.property('@each.body', '@each.sentimentScore', '@each.id'),
+    }.property('@each.body', '@each.sentimentScore', '@each.id', '@each.weight'),
 
     actions: {
-        /**
-         * Set selected topic
-         * @method setSelectedTopic
-         * @param {Object} selected topic
-         */
         setSelectedTheme: function(theme) {
           this.set('selectedTheme', theme);
         }
