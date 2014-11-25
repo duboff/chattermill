@@ -34,7 +34,8 @@ App.WordCloudComponent = Ember.Component.extend({
         themes = themes.map(function(theme) {
             return { text: theme.body,
                      size: wordScale(theme.weight),
-                     sentimentScore: theme.sentimentScore
+                     sentimentScore: theme.sentimentScore,
+                     id: theme.id
                   };
         });
 

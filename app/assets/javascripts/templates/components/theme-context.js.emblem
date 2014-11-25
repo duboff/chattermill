@@ -1,1 +1,2 @@
-p #{theme.text}
+each text in theme.texts
+  li #{text.body}
