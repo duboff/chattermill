@@ -28,7 +28,7 @@ App.WordCloudComponent = Ember.Component.extend({
         maxWeight = _.max(themes, function(theme) { return theme.weight; }).weight;
 
         //Create one scale linear for calculate words size based on its sentiment score
-        wordScale = d3.scale.linear().domain([0, maxWeight]).range([20, 40, 60, 80, 100]);
+        wordScale = d3.scale.linear().domain([1, maxWeight]).range([20, 40, 60, 80]);
 
         //Map themes in order to get only some attributes
         themes = themes.map(function(theme) {
@@ -71,7 +71,7 @@ App.WordCloudComponent = Ember.Component.extend({
                     .attr("text-anchor", "middle")
                     .attr("class", "theme")
                     .attr("transform", function(d) {
-                        return "translate(" + [d.x, d.y] + ")rotate(" + 0 + ")";
+                        return "translate(" + [d.x, d.y] + ")";
                     })
                     .text(function(d) { return d.text; })
                 .on("click", function(d) {
@@ -81,9 +81,9 @@ App.WordCloudComponent = Ember.Component.extend({
     }.observes('data'),
 
     getColorBySentiment: function(sentimentScore) {
-        if (sentimentScore > 0) {
+        if (sentimentScore > 0.4) {
             return "green";
-        } else if (sentimentScore < 0) {
+        } else if (sentimentScore <= - 0.3) {
             return "red";
         } else {
             return "gray";
