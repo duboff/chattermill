@@ -1,2 +1,4 @@
+if theme
+  h2 #{theme.body}: #{theme.sentimentScore}
 each text in theme.texts
   li #{text.body}

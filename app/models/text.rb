@@ -18,7 +18,7 @@ class Text < ActiveRecord::Base
     theme_array.each do |theme|
       theme_body = theme['title'].downcase
       t = Theme.find_or_create_by(body: theme_body, project_id: project_id) do |t|
-        t.sentiment_score = theme['sentiment_score']
+        t.sentiment_score = theme['sentiment_score'].round(2)
       end
 
       themes << t
