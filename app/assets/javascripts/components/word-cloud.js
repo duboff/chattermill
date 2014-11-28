@@ -38,12 +38,12 @@ App.WordCloudComponent = Ember.Component.extend({
                      id: theme.id
                   };
         });
-
+        
         //Config word cloud
         d3.layout.cloud()
-            .size([960, 600])
-            .timeInterval(10)
+            .size([1200, 600])
             .padding(3)
+            .rotate(function() { return 0; })
             .font("Helvetica")
             .fontSize(function(d) { return d.size; })
             .words(themes)
@@ -51,27 +51,23 @@ App.WordCloudComponent = Ember.Component.extend({
             .start();
 
         //Render word cloud
-        function draw(words) {
+        function draw(words, bounds) {
             var svg = $('#word-cloud-themes');
             svg.remove();
             d3.select("body .col-md-8")
-                .append("svg")
+                .append("svg")  
                 .attr("id", "word-cloud-themes")
-                .attr("width", 800)
-                .attr("height", 600)
                 .append("g")
-                    .attr("transform", "translate(300,300)")
+                    .attr("transform", "translate(150,150)")
                 .selectAll("text")
                     .data(words)
                 .enter().append("text")
                     .style("font-size", function(d) { return d.size + "px"; })
-                    .style("font-family", "Helvetica")
-                    .style("cursor", "pointer")
                     .style("fill", function(d) { return that.getColorBySentiment(d.sentimentScore); })
                     .attr("text-anchor", "middle")
                     .attr("class", "theme")
                     .attr("transform", function(d) {
-                        return "translate(" + [d.x, d.y] + ")";
+                        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
                     })
                     .text(function(d) { return d.text; })
                 .on("click", function(d) {
