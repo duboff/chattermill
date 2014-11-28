@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500);
+
 .borderless tbody tr td, .borderless thead tr th {
     border: none;
 }
@@ -16,9 +18,17 @@ td.positive {
 
 .theme {
   opacity: 1;
-  border-bottom: 1px dotted black;
+  cursor: pointer;
+  font-family: Helvetica;
+  font-family: 'Roboto', sans-serif;
 }
 
 .theme:hover {
   opacity: 0.7;
+}
+
+#word-cloud-themes {
+ width: 100%;
+ height: 800px;
+
 }
