@@ -1,6 +1,7 @@
 section
   h1 Theme Cloud
-  .col-md-8#div-word-cloud
-    word-cloud data=themes themesController=controller
-  .col-md-4
+  .col-lg-10.col-md-10
+    .word-cloud-container
+      word-cloud data=themes themesController=controller
+  .col-lg-2.col-md-2
     theme-context theme=theme

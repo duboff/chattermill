@@ -41,7 +41,7 @@ App.WordCloudComponent = Ember.Component.extend({
         
         //Config word cloud
         d3.layout.cloud()
-            .size([1200, 600])
+            .size([960, 800])
             .padding(3)
             .rotate(function() { return 0; })
             .font("Helvetica")
@@ -54,11 +54,13 @@ App.WordCloudComponent = Ember.Component.extend({
         function draw(words, bounds) {
             var svg = $('#word-cloud-themes');
             svg.remove();
-            d3.select("body .col-md-8")
+            d3.select("body .word-cloud-container")
                 .append("svg")  
                 .attr("id", "word-cloud-themes")
+                .attr("width", 960)
+                .attr("height", 600)
                 .append("g")
-                    .attr("transform", "translate(150,150)")
+                    .attr("transform", "translate(480,300)")
                 .selectAll("text")
                     .data(words)
                 .enter().append("text")
