@@ -19,6 +19,8 @@ App.WordCloudComponent = Ember.Component.extend({
             themes = this.get('data'),
             maxWeight,
             wordScale;
+        var w = 800,
+            h = 600;
 
         if (!themes || _.isEmpty(themes)) {
             return;
@@ -28,7 +30,7 @@ App.WordCloudComponent = Ember.Component.extend({
         maxWeight = _.max(themes, function(theme) { return theme.weight; }).weight;
 
         //Create one scale linear for calculate words size based on its sentiment score
-        wordScale = d3.scale.linear().domain([1, maxWeight]).range([20, 40, 60, 80]);
+        wordScale = d3.scale.linear().domain([1, maxWeight]).range([14, 36, 60, 80]);
 
         //Map themes in order to get only some attributes
         themes = themes.map(function(theme) {
@@ -38,13 +40,14 @@ App.WordCloudComponent = Ember.Component.extend({
                      id: theme.id
                   };
         });
+
         
         //Config word cloud
         d3.layout.cloud()
-            .size([960, 800])
+            .size([w, h])
             .padding(3)
             .rotate(function() { return 0; })
-            .font("Helvetica")
+            .font("Roboto")
             .fontSize(function(d) { return d.size; })
             .words(themes)
             .on("end", draw)
@@ -57,10 +60,10 @@ App.WordCloudComponent = Ember.Component.extend({
             d3.select("body .word-cloud-container")
                 .append("svg")  
                 .attr("id", "word-cloud-themes")
-                .attr("width", 960)
-                .attr("height", 600)
+                .attr("width", w)
+                .attr("height", h)
                 .append("g")
-                    .attr("transform", "translate(480,300)")
+                    .attr("transform", "translate(" + h / 2 + "," + h / 2 + ")")
                 .selectAll("text")
                     .data(words)
                 .enter().append("text")
